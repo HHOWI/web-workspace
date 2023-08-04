@@ -74,16 +74,23 @@
     <script>
       function checkData() {
         // 나이를 숫자로 입력하지 않았을 때 alert로 숫자를 입력하라고 메시지 띄우고 return false
-        const age = document.querySelector("#age").value;
+        const age = document.frm.age.value;
         const regExp = /[0-9]/;
-        if (!regExp.test(age)) {
-          alert("나이는 숫자로 입력하세요");
-          return false;
-        }
-        return true;
+        
+       	if(isNaN(age)) {
+       		alert("나이는 숫자로 입력하세요");
+       		return false;
+       	}
+       	return true;
+        
+//        if (!regExp.test(age)) {
+//          alert("나이는 숫자로 입력하세요");
+//          return false;
+//        }
+//        return true;
       }
       var btn = document.getElementsByClassName("btn");
-      btn.addEventListener("click", function () {
+      btn.addEventListener("click", function (){
         checkData();
       });
     </script>
