@@ -83,6 +83,7 @@ public class UserDAO implements UserDAOTemplate {
 		PreparedStatement ps = conn.prepareStatement(member);
 		ResultSet rs = ps.executeQuery();
 
+		
 		ArrayList<UserVO> list = new ArrayList<>();
 
 		while (rs.next()) {
