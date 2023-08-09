@@ -1,6 +1,7 @@
 <%@page import="servlet.model.vo.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +13,18 @@
 	
 	<ul>
 		<%-- 로그인이 되어 있지 않은 경우 --%>
-		<%MemberDTO dto = (MemberDTO)session.getAttribute("dto");
-			if(dto==null) {%>
+		<c:choose>
+			<c:when test="${empty dto}">
+		
 		<li><a href="views/register.html">회원가입</a></li>
 		<%-- 회원가입 : 아이디, 비밀번호, 이름, 주소 입력받아서 -> RegisterServlet / post 방식 
 						-> session에 데이터 바인딩 -> session에 값이 있는 경우 -> AllMemberServlet
 													값이 없는 경우 -> index.jsp --%>
 		<li><a href="views/login.html">로그인</a></li>
 		<%-- 로그인 -> 아이디, 비밀번호 입력해서 -> LoginServlet / post 방식 -> 세션에 데이터 바인딩 -> views/login_result.jsp (정보 출력) --%>
-		<%} else { %>
+		</c:when>
+		
+		<c:otherwise>
 		<%-- 로그인 되었을 때 --%>
 		<li><a href="views/search.html">회원검색</a></li>
 		<%-- 회원검색 : 검색할 아이디를 입력받아서 -> FindMemberServlet -> 검색 성공하면 views/find_ok.jsp (정보 출력)
@@ -35,7 +39,8 @@
 		<%-- 회원정보수정 : 로그인한 정보가 기재된 상태로 시작 ID 값은 변경 불가능 -> UpdateServlet / post 방식 
 									-> update_result.jsp : ...님의 정보를 수정했다. + a링크로 index.jsp로
 									DAO : updateMember 메소드 --%>
-		<%} %>
+		</c:otherwise>
+		</c:choose>
 	</ul>
 	
 </body>

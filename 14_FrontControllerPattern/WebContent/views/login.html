@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <h2>로그인</h1>
+    <hr />
+    <form action="/front.do" method="post" name="frm">
+      <div class="user">
+        <input type="hidden" name="command" value="login">
+        <label for="id" class="form-lable">ID : </label>
+        <input type="text" class="form-control" id="id" name="id" required />
+      </div>
+      <div class="user">
+        <label for="pwd" class="form-lable">PASSWORD : </label>
+        <input
+          type="password"
+          class="form-control"
+          id="pwd"
+          name="pwd"
+          required
+        />
+      </div>
+      <input type="submit" class="btn" value="로그인" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <h2>회원 정보 검색</h2>
+    <form action="/front.do" method="post">
+      <div class="user">
+        <input type="hidden" name="command" value="findMember">
+        <label for="id" class="form-lable">ID검색 : </label>
+        <input type="text" class="form-control" id="id" name="id" required />
+      </div>
+      <input type="submit" value="검색" />
+    </form>
+  </body>
+</html>
