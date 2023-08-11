@@ -13,11 +13,15 @@ public class LogoutController implements Controller {
 	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session = request.getSession();
-		session.invalidate();
-		
 		String path = "views/logout.jsp";
 		
+		if(session.getAttribute("vo")!=null) {
+		session.invalidate();
 		return new ModelAndView(path);
+		}
+		
+		return null;
+		
 	}
 
 }

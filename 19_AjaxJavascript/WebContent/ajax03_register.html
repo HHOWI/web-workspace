@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원 가입</h1>
+	<hr />
+	<form action="/front.do" method="post" name="frm">
+		<div class="user">
+			<label for="id" class="form-lable">ID : </label> <input type="text"
+				class="form-control" id="id" name="id" required /> <input
+				type="button" value="중복체크" onclick="startRequest()"> <span
+				id="idCheckView"></span>
+			<!-- DB에 아이디가 있으면 ID 사용 불가!, 없으면 ID 사용 가능!!
+        			command : idCheck.do
+       				component : IdCheckController
+       				dao : findByIdMember 를 사용해도 되고 새로 만든다면 idExist -->
+		</div>
+		<div class="user">
+			<label for="pwd" class="form-lable">PASSWORD : </label> <input
+				type="password" class="form-control" id="pwd" name="pwd" required />
+		</div>
+		<div class="user">
+			<label for="name" class="form-lable">이름 : </label> <input type="text"
+				class="form-control" id="name" name="name" required />
+		</div>
+		<div class="user">
+			<label for="addr" class="form-lable">주소 : </label> <input type="text"
+				class="form-control" id="addr" name="addr" required />
+		</div>
+		<input type="submit" class="btn" value="회원가입" />
+	</form>
+
+	<script>
+		let xhr;
+		function startRequest() {
+			const id = document.querySelector('#id').value;
+			xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = callback;
+			xhr.open('get', '/idCheck.do?id='+id);
+			xhr.send(null);
+		}
+
+		function callback() {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				document.querySelector('#idCheckView').innerHTML = xhr.responseText;
+			}
+		}
+	</script>
+</body>
+</html>
