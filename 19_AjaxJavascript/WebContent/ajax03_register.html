@@ -39,8 +39,9 @@
 			const id = document.querySelector('#id').value;
 			xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = callback;
-			xhr.open('get', '/idCheck.do?id='+id);
-			xhr.send(null);
+			xhr.open('post', '/idCheck.do');
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+			xhr.send('id=' + id);
 		}
 
 		function callback() {
