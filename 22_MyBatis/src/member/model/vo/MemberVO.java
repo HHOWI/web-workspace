@@ -5,8 +5,8 @@ public class MemberVO {
 	private String pwd;
 	private String name;
 	private String addr;
-	public MemberVO() {
-	}
+	
+	public MemberVO() {}
 	public MemberVO(String id, String pwd, String name, String addr) {
 		this.id = id;
 		this.pwd = pwd;
@@ -40,6 +40,5 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", addr=" + addr + "]";
-	} 
-	
+	}
 }
