@@ -12,6 +12,10 @@
 	<h1>회원 관리 기능</h1>
 	
 	<ul>
+		<li><a href="views/search.html">회원검색</a></li>
+		<%-- 회원검색 : 검색할 아이디를 입력받아서 -> FindMemberServlet -> 검색 성공하면 views/find_ok.jsp (정보 출력)
+																-> 실패하면 views/find_fail.jsp --%>
+		
 		<%-- 로그인이 되어 있지 않은 경우 --%>
 		<c:choose>
 			<c:when test="${empty vo}">
@@ -26,9 +30,8 @@
 		
 		<c:otherwise>
 		<%-- 로그인 되었을 때 --%>
-		<li><a href="views/search.html">회원검색</a></li>
-		<%-- 회원검색 : 검색할 아이디를 입력받아서 -> FindMemberServlet -> 검색 성공하면 views/find_ok.jsp (정보 출력)
-																-> 실패하면 views/find_fail.jsp --%>
+		
+		
 
 		<li><a href="/allShow.do" >전체회원보기</a></li>
 		<%-- 전체회원보기 : views/allShow.jsp에 전체 리스트 출력 --%>

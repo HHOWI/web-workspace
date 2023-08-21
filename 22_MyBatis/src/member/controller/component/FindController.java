@@ -1,5 +1,7 @@
 package member.controller.component;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,13 +16,21 @@ public class FindController implements Controller {
 	@Override
 	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
+		String addr = request.getParameter("addr");
+		
+		String[] list1 = request.getParameterValues("checkId");
+		
 		String path = "views/find_fail.jsp";
 		
-		MemberVO vo = new MemberService().findByIdMember(id);
+		MemberVO vo = new MemberVO();
+		if(id!="") vo.setId(id);
+		if(addr!="") vo.setAddr(addr);
 		
-		if(vo!=null) {
-			request.setAttribute("vo", vo);
-			path = "views/find_ok.jsp";
+		List<MemberVO> list = new MemberService().findByIdMember(list1);
+		
+		if(list!=null) {
+			request.setAttribute("list", list);
+			path = "views/allShow.jsp";
 			
 		}
 		

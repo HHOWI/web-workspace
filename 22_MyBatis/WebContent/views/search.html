@@ -8,9 +8,28 @@
     <h2>회원 정보 검색</h2>
     <form action="/find.do" method="post">
       <div class="user">
-        <label for="id" class="form-lable">ID검색 : </label>
-        <input type="text" class="form-control" id="id" name="id" required />
+      	 
+        <label for="id" class="form-lable">ID : </label>
+        <input type="text" class="form-control" id="id" name="id"/><br>
+        <label for="addr" class="form-lable">주소 : </label>
+        <input type="text" class="form-control" id="addr" name="addr"/><br>
+         
+        <!-- 
+        <label>
+        	<input type="checkbox" name="checkId" value="user1">user1
+        </label>
+        <label>
+        	<input type="checkbox" name="checkId" value="메시">메시
+        </label>
+        <label>
+        	<input type="checkbox" name="checkId" value="147">147
+        </label>
+        <label>
+        	<input type="checkbox" name="checkId" value="1234">1234
+        </label>
+         -->
       </div>
+      
       <input type="submit" value="검색" />
     </form>
   </body>
