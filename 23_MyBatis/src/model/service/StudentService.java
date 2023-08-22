@@ -17,8 +17,7 @@ public class StudentService {
 		List<StudentVO> list = StudentDAO.getInstance().search(sqlSession, word);
 		sqlSession.close();
 		
-		System.out.println("Search result size: " + list.size());
 		return list;
 	}
-	
+
 }
