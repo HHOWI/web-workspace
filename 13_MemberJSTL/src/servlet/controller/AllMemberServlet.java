@@ -21,7 +21,7 @@ public class AllMemberServlet extends HttpServlet {
 		try {
 			ArrayList<MemberDTO> list = MemberDAO.getInstance().showAllMember();
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("/views/allShow.jsp").forward(request, response);
+			request.getRequestDispatcher("views/allShow.jsp").forward(request, response);
 		} catch (SQLException e) {}
 	}
 
